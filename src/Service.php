@@ -14,7 +14,6 @@ class Service extends ConsulBaseClass
     {
         $s = new Service($hostname);
         $s->querry();
-        var_dump($s);
         return $s;
     }
 
@@ -33,4 +32,41 @@ class Service extends ConsulBaseClass
         $array = $this->dns_lookup_a($this->target_hostname);
         $this->target_ip = $array['ip'];
     }
+
+    /**
+     * Return Hostname
+     * @return string
+     */
+    public function getHostname()
+    {
+        return $this->hostname;
+    }
+
+    /**
+     * Return Target Hostname
+     * @return string
+     */
+    public function getTargetHostname()
+    {
+        return $this->target_hostname;
+    }
+
+    /**
+     * Return Target IP
+     * @return string
+     */
+    public function getTargetIp()
+    {
+        return $this->target_ip;
+    }
+
+    /**
+     * Return Target Port
+     * @return int
+     */
+    public function getTargetPort()
+    {
+        return $this->target_port;
+    }
+
 }
