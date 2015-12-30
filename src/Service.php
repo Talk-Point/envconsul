@@ -2,30 +2,59 @@
 
 namespace TPConsul;
 
+/**
+ * Consul Service
+ * @package TPConsul
+ */
 class Service extends ConsulBaseClass
 {
-    protected $hostname;
+    /**
+     * @var string Hoastname
+     */
+    protected $service_name;
 
+    /**
+     * @var string Target Hostname
+     */
     protected $target_hostname;
+    /**
+     * @var
+     */
     protected $target_ip;
+    /**
+     * @var
+     */
     protected $target_port;
 
-    public static function getFirst($hostname)
+    /**
+     * Get A Service from Consul
+     * @param string $service_name
+     * @return Service
+     */
+    public static function getFirst($service_name)
     {
-        $s = new Service($hostname);
+        $s = new Service($service_name);
         $s->querry();
         return $s;
     }
 
-    public function __construct($hostname)
+    /**
+     * Service constructor.
+     * @param $service_name
+     */
+    public function __construct($service_name)
     {
         parent::__construct();
-        $this->hostname = $hostname;
+        $this->service_name = $service_name;
     }
 
+    /**
+     * Query the data for the Service from Consul
+     * @throws \Exception
+     */
     public function querry()
     {
-        $array = $this->dns_lookup_srv($this->hostname);
+        $array = $this->dns_lookup_srv($this->service_name);
         $this->target_hostname = $array['target'];
         $this->target_port = $array['port'];
 
@@ -37,9 +66,9 @@ class Service extends ConsulBaseClass
      * Return Hostname
      * @return string
      */
-    public function getHostname()
+    public function getServicename()
     {
-        return $this->hostname;
+        return $this->service_name;
     }
 
     /**
