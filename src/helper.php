@@ -1,7 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: konstantinstoldt
- * Date: 30/12/15
- * Time: 09:32
- */
+
+if ( !function_exists('envconsul')) {
+    function envconsul()
+    {
+
+        $value = dns_get_record('consul.service.consul', DNS_SRV);
+
+        var_dump($value);
+
+        return 'test';
+    }
+}
