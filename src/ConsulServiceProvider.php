@@ -1,10 +1,10 @@
 <?php
 
-namespace Talk-Point\envconsul;
+namespace TPConsul;
 
 use Illuminate\Support\ServiceProvider;
 
-class envconsulServiceProvider extends ServiceProvider
+class ConsulServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.

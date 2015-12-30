@@ -1,8 +1,8 @@
 <?php
 
-namespace Talk-Point\envconsul;
+namespace TPConsul;
 
-class SkeletonClass
+class ConsulManager
 {
     /**
      * Create a new Skeleton Instance
