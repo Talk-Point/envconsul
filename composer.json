@@ -30,7 +30,7 @@
             "TPConsul\\": "src"
         },
         "files": [
-            "packages/Talk-Point/envconsul/src/helper.php"
+            "src/helper.php"
         ]
     },
     "autoload-dev": {
